@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Popka Web App</title>
+    <title>Popka · Каталог одежды</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       :root {
@@ -24,15 +24,18 @@
         color: #f5f5f7;
         padding: 24px;
       }
-      .card {
+      .shell {
         width: 100%;
-        max-width: 480px;
-        padding: 24px 24px 18px;
+        max-width: 980px;
+        padding: 22px 22px 18px;
         border-radius: 18px;
         background: rgba(10, 10, 20, 0.9);
         border: 1px solid rgba(255, 255, 255, 0.06);
         box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(12px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+        gap: 18px;
       }
       .title {
         font-size: 24px;
@@ -42,7 +45,7 @@
       .subtitle {
         font-size: 14px;
         color: #a1a1b5;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
       }
       .tag {
         display: inline-flex;
@@ -95,6 +98,7 @@
         display: flex;
         justify-content: space-between;
         gap: 12px;
+        margin-top: 8px;
       }
       .hint strong {
         color: #e5e5ff;
@@ -107,8 +111,122 @@
         font-family: 'JetBrains Mono', Consolas, monospace;
         font-size: 11px;
       }
+      .catalog {
+        border-radius: 14px;
+        background: radial-gradient(circle at top left, #25253a 0, #090914 55%);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        padding: 14px 14px 10px;
+      }
+      .catalog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .catalog-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #f5f5ff;
+      }
+      .pill {
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 11px;
+        color: #c4c4e8;
+      }
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .filter-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.03);
+        color: #d0d0ff;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease, transform 0.05s ease;
+      }
+      .filter-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+      }
+      .filter-btn.active {
+        background: linear-gradient(135deg, #4da3ff, #7b61ff);
+        color: #fff;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .item {
+        border-radius: 12px;
+        padding: 10px 10px 8px;
+        background: rgba(4, 4, 12, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .item-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+        align-items: baseline;
+      }
+      .item-name {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .item-price {
+        font-size: 13px;
+        font-weight: 600;
+        color: #8ad1ff;
+      }
+      .item-meta {
+        font-size: 11px;
+        color: #9b9bc0;
+      }
+      .item-tag {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #7f9cff;
+      }
+      .item-cta {
+        margin-top: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: #b5b5d8;
+      }
+      .item-cta span {
+        opacity: 0.8;
+      }
+      .item-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 11px;
+        background: rgba(136, 238, 190, 0.14);
+        color: #a7ffd3;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        .shell {
+          max-width: 540px;
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
       @media (max-width: 480px) {
-        .card {
+        .shell {
           padding: 20px 18px 14px;
         }
         .title {
@@ -118,41 +236,163 @@
     </style>
   </head>
   <body>
-    <main class="card">
-      <div class="tag">
-        <span class="tag-dot"></span>
-        <span>Web app · GitHub Pages ready</span>
-      </div>
-      <h1 class="title">Popka Web App</h1>
-      <p class="subtitle">
-        Минимальное, но аккуратное веб‑приложение, которое можно выложить на
-        GitHub и использовать как визитку для твоего Telegram‑бота.
-      </p>
+    <main class="shell">
+      <section>
+        <div class="tag">
+          <span class="tag-dot"></span>
+          <span>Popka · online‑каталог одежды</span>
+        </div>
+        <h1 class="title">Мини‑витрина одежды</h1>
+        <p class="subtitle">
+          Лёгкий каталог в один экран: без бэкенда и базы данных, зато быстро
+          открывается с GitHub Pages и отлично подходит как витрина для
+          Telegram‑бота.
+        </p>
 
-      <h2 class="section-title">Что здесь можно сделать</h2>
-      <ul class="list">
-        <li>
-          <span class="bullet"></span>
-          <span>Добавить описание бота и его команд.</span>
-        </li>
-        <li>
-          <span class="bullet"></span>
-          <span>Оставить ссылку на самого Telegram‑бота.</span>
-        </li>
-        <li>
-          <span class="bullet"></span>
-          <span>Расширить страницу под полноценный сайт проекта.</span>
-        </li>
-      </ul>
+        <h2 class="section-title">Как использовать</h2>
+        <ul class="list">
+          <li>
+            <span class="bullet"></span>
+            <span>Задай свои вещи и цены прямо в коде.</span>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <span>Дай ссылку клиентам из Telegram‑бота.</span>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <span>При необходимости масштабируй в полноценный магазин.</span>
+          </li>
+        </ul>
 
-      <div class="hint">
-        <span>
-          <strong>Следующий шаг:</strong>
-          залить эту папку в репозиторий GitHub.
-        </span>
-        <span class="hint-code">git push origin main</span>
-      </div>
+        <div class="hint">
+          <span>
+            <strong>Логика заказа:</strong>
+            сейчас по кнопке «Написать в бота» открывается Telegram.
+          </span>
+          <span class="hint-code">@твой_бот — укажем, когда скажешь ник</span>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <header class="catalog-header">
+          <div class="catalog-title">Каталог одежды</div>
+          <div class="pill">Демо‑подборка · можно менять</div>
+        </header>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Все</button>
+          <button class="filter-btn" data-filter="hoodie">Худи</button>
+          <button class="filter-btn" data-filter="tshirt">Футболки</button>
+          <button class="filter-btn" data-filter="pants">Штаны</button>
+        </div>
+
+        <div class="grid" id="catalogGrid">
+          <article class="item" data-type="hoodie">
+            <div class="item-top">
+              <div class="item-name">Oversize худи "Night City"</div>
+              <div class="item-price">4 990 ₽</div>
+            </div>
+            <div class="item-meta">
+              Плотный хлопок 430 г/м², глубокий чёрный, свободный крой.
+            </div>
+            <div class="item-cta">
+              <span class="item-tag">ХУДИ · XS–XXL</span>
+              <button class="item-btn" data-item="Oversize худи &quot;Night City&quot;">
+                Написать в бота
+              </button>
+            </div>
+          </article>
+
+          <article class="item" data-type="tshirt">
+            <div class="item-top">
+              <div class="item-name">Футболка "Basic White"</div>
+              <div class="item-price">1 990 ₽</div>
+            </div>
+            <div class="item-meta">
+              Универсальный белый, не просвечивает, не закатывается после стирки.
+            </div>
+            <div class="item-cta">
+              <span class="item-tag">ФУТБОЛКА · S–XL</span>
+              <button class="item-btn" data-item="Футболка &quot;Basic White&quot;">
+                Написать в бота
+              </button>
+            </div>
+          </article>
+
+          <article class="item" data-type="pants">
+            <div class="item-top">
+              <div class="item-name">Джоггеры "Soft Gray"</div>
+              <div class="item-price">3 490 ₽</div>
+            </div>
+            <div class="item-meta">
+              Мягкий футер, удобная посадка, идеально для повседневной носки.
+            </div>
+            <div class="item-cta">
+              <span class="item-tag">ШТАНЫ · XS–XL</span>
+              <button class="item-btn" data-item="Джоггеры &quot;Soft Gray&quot;">
+                Написать в бота
+              </button>
+            </div>
+          </article>
+
+          <article class="item" data-type="tshirt">
+            <div class="item-top">
+              <div class="item-name">Футболка "Graphic Drop"</div>
+              <div class="item-price">2 490 ₽</div>
+            </div>
+            <div class="item-meta">
+              Ограниченный дроп с принтом, плотный трикотаж, свободный крой.
+            </div>
+            <div class="item-cta">
+              <span class="item-tag">ФУТБОЛКА · M–XXL</span>
+              <button class="item-btn" data-item="Футболка &quot;Graphic Drop&quot;">
+                Написать в бота
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.item');
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+          filterButtons.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          items.forEach((item) => {
+            const type = item.dataset.type;
+            item.style.display =
+              filter === 'all' || filter === type ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const TELEGRAM_BOT_USERNAME = 'premier_catalog_bot';
+
+      document.querySelectorAll('.item-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const itemName = btn.dataset.item || 'товар';
+          const text = encodeURIComponent(
+            `Привет! Интересует позиция: ${itemName}`
+          );
+
+          if (TELEGRAM_BOT_USERNAME) {
+            window.open(
+              `https://t.me/${TELEGRAM_BOT_USERNAME}?startapp=${text}`,
+              '_blank'
+            );
+          } else {
+            window.open(`https://t.me/share/url?text=${text}`, '_blank');
+          }
+        });
+      });
+    </script>
   </body>
  </html>
 
