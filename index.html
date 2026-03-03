@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Popka Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        color-scheme: dark light;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top, #222 0, #050509 55%, #010103);
+        color: #f5f5f7;
+        padding: 24px;
+      }
+      .card {
+        width: 100%;
+        max-width: 480px;
+        padding: 24px 24px 18px;
+        border-radius: 18px;
+        background: rgba(10, 10, 20, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(12px);
+      }
+      .title {
+        font-size: 24px;
+        font-weight: 650;
+        margin-bottom: 8px;
+      }
+      .subtitle {
+        font-size: 14px;
+        color: #a1a1b5;
+        margin-bottom: 20px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(80, 160, 255, 0.16);
+        color: #c4ddff;
+        font-size: 11px;
+        margin-bottom: 14px;
+      }
+      .tag-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #4da3ff;
+        box-shadow: 0 0 10px rgba(77, 163, 255, 0.9);
+      }
+      .section-title {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #8080a0;
+        margin-bottom: 8px;
+      }
+      .list {
+        list-style: none;
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+      .list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .bullet {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin-top: 5px;
+        background: linear-gradient(135deg, #4da3ff, #7b61ff);
+      }
+      .hint {
+        font-size: 12px;
+        color: #75759a;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .hint strong {
+        color: #e5e5ff;
+        font-weight: 600;
+      }
+      .hint-code {
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        font-family: 'JetBrains Mono', Consolas, monospace;
+        font-size: 11px;
+      }
+      @media (max-width: 480px) {
+        .card {
+          padding: 20px 18px 14px;
+        }
+        .title {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="tag">
+        <span class="tag-dot"></span>
+        <span>Web app · GitHub Pages ready</span>
+      </div>
+      <h1 class="title">Popka Web App</h1>
+      <p class="subtitle">
+        Минимальное, но аккуратное веб‑приложение, которое можно выложить на
+        GitHub и использовать как визитку для твоего Telegram‑бота.
+      </p>
+
+      <h2 class="section-title">Что здесь можно сделать</h2>
+      <ul class="list">
+        <li>
+          <span class="bullet"></span>
+          <span>Добавить описание бота и его команд.</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <span>Оставить ссылку на самого Telegram‑бота.</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <span>Расширить страницу под полноценный сайт проекта.</span>
+        </li>
+      </ul>
+
+      <div class="hint">
+        <span>
+          <strong>Следующий шаг:</strong>
+          залить эту папку в репозиторий GitHub.
+        </span>
+        <span class="hint-code">git push origin main</span>
+      </div>
+    </main>
+  </body>
+ </html>
+
